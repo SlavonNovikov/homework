@@ -6,14 +6,13 @@
 # Если равных чисел среди 3-х вообще нет, то вывести 0
 
 
-first=int(input("Введите число1:"))
-second=int(input("Введите число2:"))
-third=int(input("Введите число3:"))
+first = int(input("Введите число1:"))
+second = int(input("Введите число2:"))
+third = int(input("Введите число3:"))
 
-
-if first==second==third:
+if first == second == third:
     print("3")
-elif first==second or second==third or first==third:
+elif first == second or second == third or first == third:
     print("2")
 else:
     print("0")
