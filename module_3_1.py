@@ -31,7 +31,7 @@ def string_info(string):
 def is_contains(list_to_search, string):
     count_calls()
     for word in string:
-        if str(word).upper() == str(list_to_search).upper():
+        if str(word).upper() == str(list_to_search).upper(): # на всякий случай использую перевод переменной в тип строка, чтобы не возникло ошибки если в списке будут числа
             result = True
             break
         else:
