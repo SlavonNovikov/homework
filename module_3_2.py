@@ -8,27 +8,22 @@
 # За один вызов функции выводится только одно и перечисленных уведомлений! Проверки перечислены по мере выполнения.
 
 def send_email(message, recipient, *, sender="university.help@gmail.com"):
-    nomistake=True
-    while nomistake==True:
-        domain = [".com", ".ru", ".net"]
-        recipient_domain = "@" in recipient and (recipient.endswith(domain[0]) or recipient.endswith(domain[1])
-                                                   or recipient.endswith(domain[2]))
+    domain = (".com", ".ru", ".net")
+    recipient_domain = "@" in recipient and recipient.endswith(domain)
+    sender_domain = "@" in sender and sender.endswith(domain)
 
-        sender_domain = "@" in sender and (sender.endswith(domain[0]) or sender.endswith(domain[1]) or
-                                             sender.endswith(domain[2]))
+    if (recipient_domain and sender_domain)==False:
+        print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}")
 
-        if (recipient_domain and sender_domain)==False:
-            print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}")
-            break
-        elif recipient == sender:
-            print("Нельзя отправить письмо самому себе!")
-            break
-        elif sender!= "university.help@gmail.com":
-            print(f"НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса {sender} на адрес {recipient}.")
-            break
-        else:
-            print(f"Письмо отправлено с адреса {sender} на адрес {recipient}.")
-            break
+    elif recipient == sender:
+        print("Нельзя отправить письмо самому себе!")
+
+    elif sender!= "university.help@gmail.com":
+        print(f"НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса {sender} на адрес {recipient}.")
+
+    else:
+        print(f"Письмо отправлено с адреса {sender} на адрес {recipient}.")
+
 
 send_email('Это сообщение для проверки связи', 'vasyok1337@gmail.com')
 send_email('Вы видите это сообщение как лучший студент курса!', 'urban.fan@mail.ru', sender='urban.info@gmail.com')
