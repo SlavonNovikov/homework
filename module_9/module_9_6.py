@@ -2,13 +2,9 @@
 #Домашнее задание по теме "Генераторы"
 
 def all_variants(text):
-    for i in range(1, len(text) + 1):
-        char = 0
-        while char < len(text):
-            if char + i <= len(text):
-                yield (text[char:char + i])
-            char += 1
-
+    for subseq_length in range(1, len(text) + 1):
+        for start in range(len(text) - subseq_length + 1):
+            yield text[start: start + subseq_length]
 
 a = all_variants("abc")
 for i in a:
